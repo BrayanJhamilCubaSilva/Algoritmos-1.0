@@ -1,0 +1,40 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+
+void main()
+{ int lado, capital, tiempo, interes, a, area;
+  float INT, TIS;
+  
+ do
+ {cout<<"*--------MENU--------*"<<endl;
+  cout<<" Que desea hacer?? "<<endl;
+  cout<<"1. Calcular el area de un cuadrado"<<endl;
+  cout<<"2. Calcular la tasa de interes simple"<<endl;
+  cout<<"Pulse 1 o 2"<<endl;
+  cin>>a;
+ }while(a<1 || a>2);
+ if (a==1)
+ {cout<<"Eligio calcular el area del cuadrado"<<endl;
+  cout<<"Ingrese el lado de un cuadrado: ";
+  cin>>lado;
+  area= (lado*lado);
+  cout<<"El area del cuadrado es: "<<area<<endl;
+ }
+ if (a==2)
+ {cout<<"Eligio calcular la tasa de interes simple"<<endl;
+  cout<<"TIS = Capital*interes*tiempo"<<endl;
+  cout<<"Ingrese capital (En bolivianos) :";
+  cin>>capital;
+  cout<<"Ingrese interes (En porcentaje) :";
+  cin>>interes;
+  cout<<"Ingrese tiempo (En años) :";
+  cin>>tiempo;
+  INT=(interes/100.0);
+  TIS=(capital*INT*tiempo);
+  cout<<"La tasa de interes simple es: "<<TIS<<endl;
+ }
+ getch();
+}
