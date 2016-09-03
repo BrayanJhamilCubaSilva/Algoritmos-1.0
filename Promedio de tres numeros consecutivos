@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define tv 1000
+using namespace std;
+void leer(double *vec, int n);
+void mostrar (double *vec, int n);
+int promedio (double *vec, int n);
+
+int main()
+{double v[tv]; 
+ int n;
+ cout<<"Ingrese dimension de un vector: ";
+ cin>>n;
+ leer(v,n);
+ promedio(v,n);
+ getch();
+ return 0;
+}
+
+void leer (double *vec, int n)
+{
+	for(int i=0; i<n; i++)
+	{ cout<<"Ingrese valor al vector :";
+	  cin>>vec[i];
+	}
+}
+
+void mostrar (double *vec, int n)
+{
+	for(int i=0; i<n; i++)
+	{ 
+	  cout<<vec[i]<<endl;
+	}
+}
+
+int promedio (double *vec, int n)
+{double promedio; 
+ if (n<3)
+  { cout<<"No existen suficientes datos";
+    return 0;
+  }
+ for(int i=0; i<(n+1)/2; i++)
+  { promedio = ((vec[i]+vec[i+1]+vec[i+2])/(3.0));
+    cout<<"El promedio de "<<vec[i]<<" , "<<vec[i+1]<<" , "<<vec[i+2]<<" es: "<<promedio<<endl;
+  }
+ return 0;
+}
+
