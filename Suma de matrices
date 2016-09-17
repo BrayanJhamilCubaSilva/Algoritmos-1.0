@@ -1,0 +1,112 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+#define MAXCOL 30
+#define MAXROW 30
+
+using namespace std;
+
+void cargar (int mat[MAXROW][MAXCOL],int n, int m);
+void cargar2 (int mat1[MAXROW][MAXCOL],int n, int m);
+void mostrar (int mat[MAXROW][MAXCOL],int n, int m);
+int mayor (int mat[MAXROW][MAXCOL],int n, int m);
+int mayor1 (int mat1[MAXROW][MAXCOL],int n, int m);
+void suma (int mat[MAXROW][MAXCOL],int mat1[MAXROW][MAXCOL], int mats [MAXROW][MAXCOL], int n, int m);
+//void clasificarfila(int mat[MAXROW][MAXCOL],int n, int m);
+
+int main()
+{
+	int n,m, matriz[MAXROW][MAXCOL], matriz1[MAXROW][MAXCOL], matsuma[MAXROW][MAXCOL];
+  // Validando las filas
+  do 
+  {
+	  cout<<"Ingrese el numero de filas: ";
+	  cin>>n;
+  } while ((n>MAXROW)|| (n<=0));
+	 
+  //Validando columnas
+  do 
+  {
+	  cout<<"Ingrese el numero de columnas: ";
+	  cin>>m;
+  } while ((m>MAXCOL)|| (m<=0));
+
+  cargar (matriz,n,m);
+  cargar2(matriz1,n,m);
+  //mostrar(matriz,n,m);
+  //mostrar(matriz1,n,m);
+  cout<<"El mayor valor de la primera matriz es: "<< mayor(matriz,n,m)<<endl;
+  cout<<"El mayor valor de la segunda matriz es: "<< mayor1(matriz1,n,m)<<endl;
+  //clasificarfila(matriz,n,m);
+  //mostrar(matriz,n,m);//
+  cout<<" La suma de las dos matrices es: "<<endl;
+  suma(matriz,matriz1,matsuma,n,m);
+  mostrar(matsuma,n,m);
+  getch();
+  return 0;
+}
+
+void cargar(int mat[MAXROW][MAXCOL],int n, int m)
+{int i, j;
+ 
+  for(i=0;i<n;i++)
+   for(j=0;j<m;j++)
+     {cout<<"MAT1 ["<<i<<"] ["<<j<<"]: ";
+      cin>>mat[i][j];
+     }
+}
+
+void cargar2 (int mat1[MAXROW][MAXCOL],int n, int m)
+{
+ 
+  for(int k=0;k<n;k++)
+   {for(int l=0;l<m;l++)
+     {cout<<"MAT2 ["<<k<<"] ["<<l<<"]: ";
+      cin>>mat1[k][l];
+     }
+   }
+}
+void mostrar(int mat[MAXROW][MAXCOL],int n, int m)
+{int i, j;
+ 
+  for(i=0;i<n;i++)
+   {for(j=0;j<m;j++)
+       cout<<"MAT ["<<i<<"] ["<<j<<"]: "<<mat[i][j]<<"\t";   
+	cout<<endl;
+   }
+}
+
+int mayor (int mat[MAXROW][MAXCOL],int n, int m)
+{int tmayor,i, j;
+ 
+tmayor= mat[0][0];
+  for(i=0;i<n;i++)
+   for(j=0;j<m;j++)
+	{ if(tmayor<mat[i][j])
+			tmayor=mat[i][j];
+   
+     }
+return tmayor;
+}
+int mayor1 (int mat1[MAXROW][MAXCOL],int n, int m)
+{int tmayor,i, j;
+ 
+tmayor= mat1[0][0];
+  for(i=0;i<n;i++)
+   for(j=0;j<m;j++)
+	{ if(tmayor<mat1[i][j])
+			tmayor=mat1[i][j];
+   
+     }
+return tmayor;
+}
+
+void suma (int mat[MAXROW][MAXCOL],int mat1[MAXROW][MAXCOL],int mats [MAXROW][MAXCOL], int n, int m)
+{
+	for(int i=0; i<n; i++)
+	{for(int j=0; j<m; j++)
+	 { mats[i][j]= (mat[i][j] + mat1[i][j]) ;
+	 }
+	}
+}
