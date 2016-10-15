@@ -1,0 +1,62 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100
+using namespace std;
+
+void cargar(int vec[MAX], int n);
+void mostrar(int vec[MAX], int n);
+void agregar(int vec[MAX], int n, int n1);
+
+int main()
+{int v1[MAX],n,n1;
+ cout<<"Ingrese la dimension del vector: ";
+ cin>>n;
+ n1=n+1;
+ cargar(v1,n);
+ mostrar(v1,n);
+ agregar(v1,n,n1);
+ mostrar(v1,n1);
+ getch();
+ return 0;
+}
+
+void cargar(int vec[MAX], int n)
+{cout<<"Cargue el vector: "<<endl;
+	for(int i=0; i<n; i++)
+	{cout<<"[ "<<i<<" ] : ";
+	 cin>>vec[i];
+	}
+}
+
+void mostrar(int vec[MAX], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<vec[i]<<"   ";
+	}
+}
+
+void agregar(int vec[MAX], int n, int n1)
+{int elem, j;
+ j=0;
+ cout<<endl<<"Ingrese elemento: ";
+ cin>>elem;
+ for(int i=0; i<n; i++)
+ {
+	 if(elem>vec[i])
+	 {j++;
+	 }
+	  vec[j]=vec[j+1];
+ }
+
+ vec[j]=elem;
+ for(int k=0; k<n; k++)
+ {
+	 if(vec[k]>elem)
+	 {
+		
+		 vec[k+1]=vec[k];
+	 }
+ }
+}
